@@ -1,0 +1,17 @@
+[server]
+runOnSave = true
+fileWatcherType = "auto"
+
+[runner]
+fastReruns = true
+
+[theme]
+base = "dark"
+primaryColor = "#c8a24a"
+backgroundColor = "#0e0e10"
+secondaryBackgroundColor = "#1a1a1d"
+textColor = "#e8e6e3"
+font = "serif"
+
+[client]
+toolbarMode = "viewer"

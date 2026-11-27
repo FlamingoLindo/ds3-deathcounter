@@ -1,0 +1,11 @@
+.venv
+.git
+.gitignore
+.env
+__pycache__
+*.pyc
+screenshots
+logs.log
+db.sqlite
+ie0j48b9.default-release
+cspell.config.yaml

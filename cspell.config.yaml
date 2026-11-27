@@ -1,0 +1,24 @@
+version: "0.2"
+ignorePaths:
+  - .gitignore
+  - requirements.txt
+  - Dockerfile
+  - docker-compose.yaml
+  - .dockerignore
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - dotenv
+  - eventsub
+  - frombuffer
+  - imdecode
+  - imread
+  - imwrite
+  - Lindo's
+  - streamlit
+  - tessedit
+  - Tesseract
+  - timespec
+  - YOUDIED
+ignoreWords: []
+import: []

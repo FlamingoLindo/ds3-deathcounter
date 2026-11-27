@@ -1,0 +1,41 @@
+services:
+  reader:
+    build: .
+    command: python main.py
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      OMP_THREAD_LIMIT: "1"
+      DB_PATH: /data/db/db.sqlite
+      SCREENSHOTS_DIR: /data/screenshots
+      LOG_FILE: /data/logs/logs.log
+      TOKEN_FILE: /data/tokens/tokens.json
+    volumes:
+      - ds3-db:/data/db
+      - ds3-screenshots:/data/screenshots
+      - ds3-logs:/data/logs
+      - ./twitch/tokens.json:/data/tokens/tokens.json
+      - ./ie0j48b9.default-release:/data/firefox-profile
+
+  dashboard:
+    build: .
+    command: streamlit run dashboard.py --server.port 8501 --server.address 0.0.0.0
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    environment:
+      DB_PATH: /data/db/db.sqlite
+      SCREENSHOTS_DIR: /data/screenshots
+      LOG_FILE: /data/logs/logs.log
+    volumes:
+      - ds3-db:/data/db:ro
+      - ds3-screenshots:/data/screenshots:ro
+      - ds3-logs:/data/logs:ro
+
+volumes:
+  ds3-db:
+  ds3-screenshots:
+  ds3-logs:
